@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            /* height: 210px; */
+            width: 400px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 0px 3px rgb(201, 197, 197);
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+
+            height: 35px;
+            box-shadow: 0px 0px 3px rgb(201, 197, 197);
+
+            border: none;
+            width: 65%;
+
+        }
+
+        button {
+            height: 40px;
+            width: 100px;
+            margin-left: 5px;
+            border: none;
+            box-shadow: 0px 0px 3px rgb(201, 197, 197);
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+
+        }
+
+        button:hover {
+
+            background-color: rgba(100, 170, 250, 0.411);
+            color: rgb(0, 0, 0);
+            transition: 0.5s;
+
+        }
+
+        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        h3 {
+            display: inline;
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+    <div class="box">
+
+        <h1>Prove you're human!</h1>
+
+        <h3 id="one-num">5</h3> &nbsp;
+
+        <h3 id="sign"></h3> &nbsp;
+
+        <h3 id="two-num">5</h3>
+
+        <br><br>
+
+
+        <input type="text" id="input"><button id="btn">Submit</button>
+
+    </div>
+
+    <script>
+
+        let btn = document.getElementById('btn');
+
+        let inpu = document.getElementById('input');
+
+
+        let sign = document.getElementById('sign');
+
+
+
+        let twonum = document.getElementById('two-num');
+        let onenum = document.getElementById('one-num');
+
+
+        // <--- Math Section --->
+
+
+        let nishn = sign.innerText = ['-', '+', '*'][Math.floor(Math.random() * 3)]
+
+        let oneRandom = Math.ceil(Math.random() * 10);
+
+        onenum.innerText = oneRandom
+
+        let twoRandom = Math.round(Math.random() * 10);
+
+        twonum.innerText = twoRandom
+
+        let Unkwn = oneRandom + nishn + twoRandom;
+
+        let SumValue = eval(Unkwn)
+
+        let store = localStorage.setItem('sum', SumValue)
+
+
+
+
+
+        btn.onclick = function () {
+
+            // console.log(input.value);
+
+            if( input.value ===""){
+
+                alert('Please fill the CApcha')
+
+                location.reload()
+            }else{
+
+                let GetItem = localStorage.getItem('sum');
+
+if ( input.value === GetItem) {
+
+    alert(GetItem + 'CAPTCHA verification passed!')
+
+    window.location.href='https://youtube.com/';
+    
+    input.value =''
+
+    
+}
+else {
+
+    alert('CAPTCHA verification failed. Please try again');
+
+
+    location.reload()
+
+    input.value =''
+}
+
+
+
+
+}
+            }
+
+        
+    </script>
+</body>
+
+</html>
